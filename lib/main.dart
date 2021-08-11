@@ -31,6 +31,8 @@ class FormValidation extends StatefulWidget {
 class _FormValidationState extends State<FormValidation> {
   final formGlobalKey = GlobalKey<FormState>();
 
+  buttonOnPressed() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class _FormValidationState extends State<FormValidation> {
       //   title: Text(widget.title),
       // ),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(32),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -130,6 +132,29 @@ class _FormValidationState extends State<FormValidation> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(32),
                         borderSide: BorderSide(color: Colors.black54),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      buttonOnPressed();
+                    },
+                    child: Text(
+                      "Validate",
+                      style: TextStyle(
+                        color: Colors.yellow,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black54,
+                      minimumSize: Size.fromHeight(48),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                   ),
