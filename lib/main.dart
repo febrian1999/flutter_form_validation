@@ -5,7 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,143 +24,40 @@ class FormValidation extends StatefulWidget {
   final String title;
 
   @override
-  _FormValidationState createState() => _FormValidationState();
+  _FormValidationState createState() {
+    return _FormValidationState();
+  }
 }
 
 class _FormValidationState extends State<FormValidation> {
-  final formGlobalKey = GlobalKey<FormState>();
-
-  buttonOnPressed() {}
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
-      body: Container(
-        padding: EdgeInsets.all(32),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.yellow,
-              Colors.yellowAccent,
-            ],
-          ),
-        ),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: SafeArea(
-          child: Form(
-            key: formGlobalKey,
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                  child: Text(
-                    "Form Validation",
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(24, 8, 0, 0),
-                  width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "Email",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Container(
-                  height: 64,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.email_outlined,
-                        color: Colors.black54,
-                      ),
-                      hintText: "Email",
-                      hintStyle: TextStyle(color: Colors.black54),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(24, 8, 0, 0),
-                  width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "Password",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Container(
-                  height: 64,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.vpn_key_outlined,
-                        color: Colors.black54,
-                      ),
-                      hintText: "Password",
-                      hintStyle: TextStyle(color: Colors.black54),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      buttonOnPressed();
-                    },
-                    child: Text(
-                      "Validate",
-                      style: TextStyle(
-                        color: Colors.yellow,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.black54,
-                      minimumSize: Size.fromHeight(48),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+      body: Form(
+        key: _formKey,
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
             ),
-          ),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ],
         ),
       ),
     );
