@@ -118,8 +118,8 @@ class _FormValidationState extends State<FormValidation> {
                 ),
                 // ),
                 TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
+                  validator: (password) {
+                    if (password == null || password.isEmpty) {
                       return 'Please enter some text';
                     }
                     return null;
