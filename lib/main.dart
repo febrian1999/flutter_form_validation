@@ -32,6 +32,8 @@ class FormValidation extends StatefulWidget {
 class _FormValidationState extends State<FormValidation> {
   final _formKey = GlobalKey<FormState>();
 
+  TextEditingController controllerUser = TextEditingController();
+
   password1Validator(password1) {
     if (password1 == null || password1.isEmpty) {
       return 'Paswsword Is Empty';
@@ -71,7 +73,32 @@ class _FormValidationState extends State<FormValidation> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(24, 16, 0, 16),
+                  padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
+                  width: double.infinity,
+                  child: Text(
+                    "Username",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                // Container(
+                // child:
+                TextFormField(
+                  controller: controllerUser,
+                  decoration: InputDecoration(
+                    hintText: "Username",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(32),
+                      borderSide: BorderSide(color: Colors.black54),
+                    ),
+                    prefixIcon: Icon(Icons.person_outline),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
                   width: double.infinity,
                   child: Text(
                     "Password",
@@ -85,8 +112,8 @@ class _FormValidationState extends State<FormValidation> {
                 // Container(
                 // child:
                 TextFormField(
-                  validator: (password1) {
-                    password1Validator(password1);
+                  validator: (password) {
+                    password1Validator(password);
                   },
                 ),
                 // ),
