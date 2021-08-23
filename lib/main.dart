@@ -94,6 +94,13 @@ class _FormValidationState extends State<FormValidation> {
                       borderRadius: BorderRadius.circular(32),
                       borderSide: BorderSide(color: Colors.black54),
                     ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(32),
+                      borderSide: BorderSide(color: Colors.black54),
+                    ),
                     prefixIcon: Icon(Icons.person_outline),
                   ),
                 ),
