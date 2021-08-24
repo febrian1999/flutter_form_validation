@@ -157,7 +157,7 @@ class _FormValidationState extends State<FormValidation> {
                 TextFormField(
                   controller: controllerSecondPassword,
                   decoration: InputDecoration(
-                    hintText: "Username",
+                    hintText: "Password",
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
                       borderSide: BorderSide(color: Colors.black54),
