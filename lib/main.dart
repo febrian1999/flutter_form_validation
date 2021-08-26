@@ -140,6 +140,10 @@ class _FormValidationState extends State<FormValidation> {
                       borderRadius: BorderRadius.circular(32),
                       borderSide: BorderSide(color: Colors.black54),
                     ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(32),
+                      borderSide: BorderSide(color: Colors.redAccent),
+                    ),
                     prefixIcon: Icon(Icons.vpn_key_outlined),
                   ),
                   validator: (password) {
