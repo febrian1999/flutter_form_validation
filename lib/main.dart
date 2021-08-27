@@ -202,6 +202,12 @@ class _FormValidationState extends State<FormValidation> {
                       }
                     },
                     child: const Text('Submit'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size.fromHeight(48),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
                   ),
                 ),
               ],
