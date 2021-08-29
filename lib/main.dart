@@ -192,7 +192,7 @@ class _FormValidationState extends State<FormValidation> {
                   },
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 8),
+                  padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -201,7 +201,13 @@ class _FormValidationState extends State<FormValidation> {
                         );
                       }
                     },
-                    child: const Text('Submit'),
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size.fromHeight(48),
                       shape: RoundedRectangleBorder(
