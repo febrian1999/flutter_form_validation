@@ -209,6 +209,7 @@ class _FormValidationState extends State<FormValidation> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      primary: Colors.black87,
                       minimumSize: Size.fromHeight(48),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
