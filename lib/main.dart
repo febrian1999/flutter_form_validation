@@ -110,6 +110,12 @@ class _FormValidationState extends State<FormValidation> {
                     ),
                     prefixIcon: Icon(Icons.person_outline),
                   ),
+                  validator: (username) {
+                    if (username == null || username.isEmpty) {
+                      return 'Username is empty';
+                    }
+                    return null;
+                  },
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
