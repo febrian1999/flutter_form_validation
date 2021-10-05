@@ -153,7 +153,10 @@ class _FormValidationState extends State<FormValidation> {
                     prefixIcon: Icon(Icons.vpn_key_outlined),
                   ),
                   validator: (password) {
-                    password1Validator(password);
+                    if (password == null || password.isEmpty) {
+                      return 'Password is empty';
+                    }
+                    return null;
                   },
                 ),
                 // ),
@@ -191,8 +194,10 @@ class _FormValidationState extends State<FormValidation> {
                     prefixIcon: Icon(Icons.person_outline),
                   ),
                   validator: (password) {
-                    if (password == null || password.isEmpty) {
-                      return 'Please enter some text';
+                    if (password == null ||
+                        password.isEmpty ||
+                        password != controllerFirstPassword.text) {
+                      return 'Password did not match';
                     }
                     return null;
                   },
