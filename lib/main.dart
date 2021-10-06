@@ -194,9 +194,9 @@ class _FormValidationState extends State<FormValidation> {
                     prefixIcon: Icon(Icons.person_outline),
                   ),
                   validator: (password) {
-                    if (password == null ||
-                        password.isEmpty ||
-                        password != controllerFirstPassword.text) {
+                    if (password == null || password.isEmpty) {
+                      return 'Password is empty';
+                    } else if (password != controllerFirstPassword.text) {
                       return 'Password did not match';
                     }
                     return null;
