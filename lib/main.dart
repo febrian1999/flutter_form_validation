@@ -197,7 +197,10 @@ class _FormValidationState extends State<FormValidation> {
                       borderRadius: BorderRadius.circular(32),
                       borderSide: BorderSide(color: Colors.redAccent),
                     ),
-                    prefixIcon: Icon(Icons.person_outline),
+                    prefixIcon: Icon(
+                      Icons.person_outline,
+                      color: Colors.black,
+                    ),
                   ),
                   validator: (password) {
                     if (password == null || password.isEmpty) {
