@@ -144,6 +144,7 @@ class _FormValidationState extends State<FormValidation> {
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
+                      borderSide: BorderSide(color: Colors.redAccent),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
