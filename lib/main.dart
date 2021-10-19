@@ -206,9 +206,9 @@ class _FormValidationState extends State<FormValidation> {
                   ),
                   validator: (password) {
                     if (password == null || password.isEmpty) {
-                      return 'Password is empty';
+                      return "Password is empty";
                     } else if (password != controllerFirstPassword.text) {
-                      return 'Password did not match';
+                      return "Password didn't match";
                     }
                     return null;
                   },
