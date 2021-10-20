@@ -59,187 +59,189 @@ class _FormValidationState extends State<FormValidation> {
           ),
         ),
         child: SafeArea(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                  child: Text(
-                    "Form Validation",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
-                  width: double.infinity,
-                  child: Text(
-                    "Username",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                // Container(
-                // child:
-                TextFormField(
-                  controller: controllerUser,
-                  decoration: InputDecoration(
-                    hintText: "Username",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.person_outline,
-                      color: Colors.black,
-                    ),
-                  ),
-                  validator: (username) {
-                    if (username == null || username.isEmpty) {
-                      return 'Username is empty';
-                    }
-                    return null;
-                  },
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
-                  width: double.infinity,
-                  child: Text(
-                    "Password",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                // Container(
-                // child:
-                TextFormField(
-                  controller: controllerFirstPassword,
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.vpn_key_outlined,
-                      color: Colors.black,
-                    ),
-                  ),
-                  validator: (password) {
-                    if (password == null || password.isEmpty) {
-                      return 'Password is empty';
-                    }
-                    return null;
-                  },
-                ),
-                // ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
-                  width: double.infinity,
-                  child: Text(
-                    "Retype Password",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                TextFormField(
-                  controller: controllerSecondPassword,
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.black54),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(color: Colors.redAccent),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.person_outline,
-                      color: Colors.black,
-                    ),
-                  ),
-                  validator: (password) {
-                    if (password == null || password.isEmpty) {
-                      return "Password is empty";
-                    } else if (password != controllerFirstPassword.text) {
-                      return "Password didn't match";
-                    }
-                    return null;
-                  },
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
-                      }
-                    },
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                     child: Text(
-                      'Submit',
+                      "Form Validation",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 32,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.black87,
-                      minimumSize: Size.fromHeight(48),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
+                        color: Colors.black54,
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Container(
+                    padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
+                    width: double.infinity,
+                    child: Text(
+                      "Username",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  // Container(
+                  // child:
+                  TextFormField(
+                    controller: controllerUser,
+                    decoration: InputDecoration(
+                      hintText: "Username",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                      ),
+                    ),
+                    validator: (username) {
+                      if (username == null || username.isEmpty) {
+                        return 'Username is empty';
+                      }
+                      return null;
+                    },
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
+                    width: double.infinity,
+                    child: Text(
+                      "Password",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  // Container(
+                  // child:
+                  TextFormField(
+                    controller: controllerFirstPassword,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.vpn_key_outlined,
+                        color: Colors.black,
+                      ),
+                    ),
+                    validator: (password) {
+                      if (password == null || password.isEmpty) {
+                        return 'Password is empty';
+                      }
+                      return null;
+                    },
+                  ),
+                  // ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(24, 16, 0, 0),
+                    width: double.infinity,
+                    child: Text(
+                      "Retype Password",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  TextFormField(
+                    controller: controllerSecondPassword,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(32),
+                        borderSide: BorderSide(color: Colors.redAccent),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                      ),
+                    ),
+                    validator: (password) {
+                      if (password == null || password.isEmpty) {
+                        return "Password is empty";
+                      } else if (password != controllerFirstPassword.text) {
+                        return "Password didn't match";
+                      }
+                      return null;
+                    },
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          );
+                        }
+                      },
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.black87,
+                        minimumSize: Size.fromHeight(48),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
