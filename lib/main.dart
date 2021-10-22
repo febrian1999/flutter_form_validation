@@ -36,11 +36,12 @@ class _FormValidationState extends State<FormValidation> {
   TextEditingController controllerFirstPassword = TextEditingController();
   TextEditingController controllerSecondPassword = TextEditingController();
 
-  password1Validator(password1) {
-    if (password1 == null || password1.isEmpty) {
-      return 'Paswsword Is Empty';
+  submitOnPressed() {
+    if (_formKey.currentState!.validate()) {
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(content: Text('Processing Data')),
+      // );
     }
-    return null;
   }
 
   @override
@@ -218,11 +219,7 @@ class _FormValidationState extends State<FormValidation> {
                     padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //   const SnackBar(content: Text('Processing Data')),
-                          // );
-                        }
+                        submitOnPressed();
                       },
                       child: Text(
                         'Submit',
