@@ -185,39 +185,42 @@ class _FormValidationState extends State<FormValidation> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  TextFormField(
-                    controller: controllerSecondPassword,
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
+                  Container(
+                    height: 64,
+                    child: TextFormField(
+                      controller: controllerSecondPassword,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32),
+                          borderSide: BorderSide(color: Colors.black54),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32),
+                          borderSide: BorderSide(color: Colors.redAccent),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32),
+                          borderSide: BorderSide(color: Colors.black54),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32),
+                          borderSide: BorderSide(color: Colors.redAccent),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.person_outline,
+                          color: Colors.black,
+                        ),
                       ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.redAccent),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.black54),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
-                        borderSide: BorderSide(color: Colors.redAccent),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      validator: (password) {
+                        if (password == null || password.isEmpty) {
+                          return "Password is empty";
+                        } else if (password != controllerFirstPassword.text) {
+                          return "Password didn't match";
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (password) {
-                      if (password == null || password.isEmpty) {
-                        return "Password is empty";
-                      } else if (password != controllerFirstPassword.text) {
-                        return "Password didn't match";
-                      }
-                      return null;
-                    },
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
