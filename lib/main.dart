@@ -229,7 +229,7 @@ class _FormValidationState extends State<FormValidation> {
                         submitOnPressed();
                       },
                       child: Text(
-                        'Submit',
+                        'Validate',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
