@@ -61,6 +61,7 @@ class _FormValidationState extends State<FormValidation> {
         ),
         child: SafeArea(
           child: Container(
+            alignment: Alignment.center,
             height: double.infinity,
             child: SingleChildScrollView(
               child: Form(
